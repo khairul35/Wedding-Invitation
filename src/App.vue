@@ -257,14 +257,6 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      if (audio.value) {
-        audio.value.muted = true; // Mute initially
-        audio.value.play().then(() => {
-          audio.value!.muted = false; // Unmute after play starts
-        }).catch(error => {
-          console.error('Audio playback failed:', error);
-        });
-      }
       updateCountdown();
       setInterval(updateCountdown, 1000);
     });

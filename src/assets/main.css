@@ -27,5 +27,10 @@ a,
     display: flex;
     place-items: center;
   }
+}
 
+@media (max-width: 400px) {
+  #app {
+    width: 100%;
+  }
 }

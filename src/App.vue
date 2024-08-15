@@ -87,14 +87,150 @@
         Terima Kasih
       </p>
     </div>
+    <div>
+      <a-card class="menu">
+        <a-row :gutter="16">
+          <a-col span="8">
+            <a @click="() => {showCalendar = true}">
+              <p style="color: #fff" class="menu-icon"><CalendarOutlined /></p>
+              <p class="menu-text">Kalendar</p>
+            </a>
+          </a-col>
+          <a-col span="8">
+            <a @click="() => {showContact = true}">
+              <p style="color: #fff" class="menu-icon"><UserOutlined /></p>
+              <p class="menu-text">Hubungi</p>
+            </a>
+          </a-col>
+          <a-col span="8">
+            <a @click="() => {showLocation = true}">
+              <p style="color: #fff" class="menu-icon"><SearchOutlined /></p>
+              <p class="menu-text">Lokasi</p>
+            </a>
+          </a-col>
+        </a-row>
+      </a-card>
+    </div>
+    <a-drawer title="Kalendar" :visible="showCalendar" @close="() => {showCalendar = false}" placement="bottom" :height="200">
+      <div class="text-center">
+        <a href="https://calendar.google.com/calendar/r/eventedit?text=Saya+Nak+Kahwin&dates=20241102T030000Z/20241102T070000Z&ctz=Asia/Kuala_Lumpur&details=Undangan+Majlis+Perkahwinan+Khairul+Habib+%26+Nur+Haziqah&location=Dewan+Serbaguna+Kampung+Melayu+Subang&trp=false" target="_blank">
+          <p class="calendar-button"><GoogleOutlined /> Tambah ke Google Kalendar</p>
+        </a>
+        <a
+          href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR
+            VERSION:2.0
+            PRODID:-//Khairul Habib//Saya Nak Kahwin//EN
+            BEGIN:VEVENT
+            UID:KhairulHabibNurHaziqah@SayaNakKahwin
+            DTSTAMP:20240724T030000Z
+            DTSTART:20241102T030000Z
+            DTEND:20241102T070000Z
+            SUMMARY:Saya Nak Kahwin
+            LOCATION:Dewan Serbaguna Kampung Melayu Subang
+            DESCRIPTION:Undangan Majlis Perkahwinan Khairul Habib & Nur Haziqah
+            END:VEVENT
+            END:VCALENDAR"
+          target="_blank"
+        >
+          <p class="calendar-button"><AppleOutlined /> Tambah ke Apple Kalendar</p>
+        </a>
+      </div>
+    </a-drawer>
+    <a-drawer title="Hubungi" :visible="showContact" @close="() => {showContact = false}" placement="bottom" :height="350">
+      <div class="contact-box">
+        <a-row :gutter="16">
+          <a-col span="16">
+            <p>Samaon</p>
+            <p class="contact-relation">Ayah pengantin lelaki</p>
+          </a-col>
+          <a-col span="4">
+            <a href="tel:+60126364919" target="_blank"><PhoneOutlined class="contact-icon" /></a>
+          </a-col>
+          <a-col span="4">
+            <a href="https://wa.me/60126364919" target="_blank"><WhatsAppOutlined class="contact-icon" /></a>
+          </a-col>
+        </a-row>
+      </div>
+      <div class="contact-box">
+        <a-row :gutter="16">
+          <a-col span="16">
+            <p>Zalina</p>
+            <p class="contact-relation">Ibu pengantin lelaki</p>
+          </a-col>
+          <a-col span="4">
+            <a href="tel:+60182313424" target="_blank"><PhoneOutlined class="contact-icon" /></a>
+          </a-col>
+          <a-col span="4">
+            <a href="https://wa.me/60182313424" target="_blank"><WhatsAppOutlined class="contact-icon" /></a>
+          </a-col>
+        </a-row>
+      </div>
+      <div class="contact-box">
+        <a-row :gutter="16">
+          <a-col span="16">
+            <p>Ayun</p>
+            <p class="contact-relation">Adik pengantin lelaki</p>
+          </a-col>
+          <a-col span="4">
+            <a href="tel:+60182321224" target="_blank"><PhoneOutlined class="contact-icon" /></a>
+          </a-col>
+          <a-col span="4">
+            <a href="https://wa.me/60182321224" target="_blank"><WhatsAppOutlined class="contact-icon" /></a>
+          </a-col>
+        </a-row>
+      </div>
+      <div class="contact-box">
+        <a-row :gutter="16">
+          <a-col span="16">
+            <p>Amin</p>
+            <p class="contact-relation">Adik pengantin lelaki</p>
+          </a-col>
+          <a-col span="4">
+            <a href="tel:+601127091241" target="_blank"><PhoneOutlined class="contact-icon" /></a>
+          </a-col>
+          <a-col span="4">
+            <a href="https://wa.me/601127091241" target="_blank"><WhatsAppOutlined class="contact-icon" /></a>
+          </a-col>
+        </a-row>
+      </div>
+    </a-drawer>
+    <a-drawer title="Lokasi" :visible="showLocation" @close="() => {showLocation = false}" placement="bottom" :height="200">
+      <a href="https://ul.waze.com/ul?place=ChIJx9nFsE5RzDERPlz_T49aAJ4&ll=3.13072230%2C101.42958960&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank">
+        <div class="map">
+          Waze
+        </div>
+      </a>
+      <a href="https://maps.app.goo.gl/DJj5XoFVLxWkkzUEA" target="_blank">
+        <div class="map">
+          Google Map
+        </div>
+      </a>
+    </a-drawer>
   </div>
 </template>
 
 <script lang="ts">
-import { CalendarOutlined, ClockCircleOutlined, SearchOutlined } from '@ant-design/icons-vue';
+import { AppleOutlined, CalendarOutlined, ClockCircleOutlined, GoogleOutlined, PhoneOutlined, SearchOutlined, UserOutlined, WhatsAppOutlined } from '@ant-design/icons-vue';
 import { defineComponent, onMounted, ref } from 'vue';
 
 export default defineComponent({
+  components: {
+    CalendarOutlined,
+    ClockCircleOutlined,
+    SearchOutlined,
+    UserOutlined,
+    GoogleOutlined,
+    AppleOutlined,
+    WhatsAppOutlined,
+    PhoneOutlined,
+  },
+  data() {
+    return {
+      showCalendar: ref<boolean>(false),
+      showContact: ref<boolean>(false),
+      showLocation: ref<boolean>(false),
+    };
+  },
   setup() {
     const targetDate = new Date('2024-11-02T11:00:00');
     const timeLeft = ref<{
@@ -121,6 +257,14 @@ export default defineComponent({
     };
 
     onMounted(() => {
+      if (audio.value) {
+        audio.value.muted = true; // Mute initially
+        audio.value.play().then(() => {
+          audio.value!.muted = false; // Unmute after play starts
+        }).catch(error => {
+          console.error('Audio playback failed:', error);
+        });
+      }
       updateCountdown();
       setInterval(updateCountdown, 1000);
     });
@@ -133,6 +277,62 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.menu {
+  background-image: linear-gradient(to bottom, #7c7b7b, #000000);
+  color: #fff;
+  width: 90%;
+  margin: 15px 5% 0px;
+}
+
+.contact-icon {
+  font-size: 20px;
+  margin: 8px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: green;
+}
+
+.contact-box {
+  border: 1px solid #7c7b7b;
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin: 5px 0px;
+  background-color: rgb(253, 239, 252);
+}
+
+.map {
+  border: 1px solid #7c7b7b;
+  border-radius: 5px;
+  padding: 5px 20px;
+  margin: 5px 0px;
+  background-color: rgb(253, 239, 252);
+  text-align: center;
+}
+
+.contact-relation {
+  font-size: 10px !important;
+  color: rgb(149, 147, 147);
+}
+
+.calendar-button {
+  border: 1px solid #949191;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.menu-text {
+  font-size: 10px !important;
+  color: rgb(214, 212, 212);
+}
+
+.menu-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
 .countdown {
   background-color: #fff;
   width: 80%;

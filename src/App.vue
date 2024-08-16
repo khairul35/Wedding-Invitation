@@ -206,11 +206,16 @@
         </div>
       </a>
     </a-drawer>
+    <div class="footer">
+      <a href="https://github.com/khairul35" target="_blank" style="color: #7c7b7b">
+        <GithubOutlined /> Created by khairul35
+      </a>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { AppleOutlined, CalendarOutlined, ClockCircleOutlined, GoogleOutlined, PhoneOutlined, SearchOutlined, UserOutlined, WhatsAppOutlined } from '@ant-design/icons-vue';
+import { AppleOutlined, CalendarOutlined, ClockCircleOutlined, GithubOutlined, GoogleOutlined, PhoneOutlined, SearchOutlined, UserOutlined, WhatsAppOutlined } from '@ant-design/icons-vue';
 import { defineComponent, onMounted, ref } from 'vue';
 
 export default defineComponent({
@@ -223,6 +228,7 @@ export default defineComponent({
     AppleOutlined,
     WhatsAppOutlined,
     PhoneOutlined,
+    GithubOutlined,
   },
   data() {
     return {
@@ -269,6 +275,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
+.footer {
+  margin-top: 20px;
+  color: #7c7b7b !important;
+}
 .menu {
   background-image: linear-gradient(to bottom, #7c7b7b, #000000);
   color: #fff;
@@ -362,7 +373,7 @@ export default defineComponent({
 }
 
 .main {
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 .poster {
   width: 98%;
